@@ -1,0 +1,48 @@
+# Настройки для интеграции с Bitrix24
+bitrix24:
+  # Настройки фоновых задач
+  schedule:
+    # Включить ли первоначальную историческую загрузку при старте сервиса?
+    # true - да, false - нет. Рекомендуется true для первого запуска.
+    initial_load_enabled: true
+    # Как часто (в минутах) проверять наличие обновлений (для фоллбэка, если вебхуки не сработают).
+    sync_interval_minutes: 60
+
+  # Описание сущностей, которые мы собираем
+  entities:
+    # Настройки для сделок
+    deals:
+      # Список полей, которые нужно забирать из Bitrix24.
+      # Названия должны соответствовать API Bitrix24.
+      fields_to_collect:
+        - "ID"
+        - "TITLE"
+        - "STAGE_ID"
+        - "OPPORTUNITY"
+        - "CURRENCY_ID"
+        - "ASSIGNED_BY_ID"
+        - "COMPANY_ID"
+        - "CONTACT_ID"
+        - "DATE_CREATE"
+        - "CLOSEDATE"
+
+    # Настройки для контактов
+    contacts:
+      fields_to_collect:
+        - "ID"
+        - "NAME"
+        - "LAST_NAME"
+        - "PHONE"
+        - "EMAIL"
+
+    # Настройки для компаний
+    companies:
+      fields_to_collect:
+        - "ID"
+        - "TITLE"
+        - "COMPANY_TYPE"
+        - "INDUSTRY"
+        - "EMPLOYEES"
+        - "ADDRESS"
+        - "PHONE"
+        - "EMAIL"
